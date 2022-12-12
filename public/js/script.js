@@ -125,6 +125,7 @@ const mains = {
             e.addEventListener("click", () => {
                if (e.attributes.class.ownerElement.innerHTML == "masalah") {
                   alert("next level masih dalam pengerjaan :)");
+                  alert("terima kasih telah bermain :)");
                   return reset();
                } else {
                   nyawa--;
