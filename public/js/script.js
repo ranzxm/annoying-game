@@ -8,6 +8,7 @@ const nyawaPlayer = topMainPage.querySelector(".nyawa h1 .num-of-nyawa");
 const content = document.querySelector(".main-page .center");
 const correctPopUp = document.querySelector(".main-page .cakep");
 const backButton = document.querySelector(".main-page .bottom .kembali");
+let contentArr = Array.from(content.children);
 
 // EVENT CLICK TOMBOL MULAI
 tombolMulai.addEventListener("click", () => {
@@ -57,7 +58,6 @@ const mains = {
                   correctPopUp.classList.remove("hidden");
                   correctPopUp.classList.add("flex");
                   correctPopUp.addEventListener("click", (e) => {
-                     console.log(e.target.classList);
                      if (e.target.classList.contains("next-button")) {
                         correctPopUp.classList.remove("flex");
                         correctPopUp.classList.add("hidden");
@@ -122,7 +122,8 @@ const mains = {
          pils.forEach((e) => {
             e.addEventListener("click", () => {
                if (e.attributes.class.ownerElement.innerHTML == "masalah") {
-                  alert("OK");
+                  alert("next level masih dalam pengerjaan :)");
+                  return reset();
                } else {
                   nyawa--;
                }
@@ -138,10 +139,17 @@ const mains = {
 const mainObj = Object.keys(mains);
 const mainObjLength = Object.keys(mains).length;
 
-backButton.addEventListener("click", () => {
+const reset = () => {
    nyawa = 3;
    mainPage.classList.remove("flex");
    mainPage.classList.add("hidden");
    homePage.classList.remove("hidden");
    homePage.classList.add("flex");
+   Array.from(content.children).forEach((e) => {
+      e.remove();
+   });
+};
+
+backButton.addEventListener("click", () => {
+   reset();
 });
