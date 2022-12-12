@@ -67,7 +67,9 @@ const mains = {
                } else {
                   nyawa--;
                   if (nyawa == 0) {
-                     nyawa = 3;
+                     alert("bodoh, gitu aja gabisa !");
+                     alert("mikir pake otak, biar bisa lanjut");
+                     return reset();
                   }
                }
             });
@@ -126,6 +128,11 @@ const mains = {
                   return reset();
                } else {
                   nyawa--;
+                  if (nyawa == 0) {
+                     alert("bodoh, gitu aja gabisa !");
+                     alert("mikir pake otak, biar bisa lanjut");
+                     return reset();
+                  }
                }
             });
          });
